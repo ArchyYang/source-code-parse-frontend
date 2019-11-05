@@ -1,13 +1,11 @@
 .App {
   text-align: center;
-
   background-color: rgb(206, 213, 223);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
+  padding: 32px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .App-logo {
@@ -30,9 +28,20 @@
 }
 
 .Card {
-  background-color: white;
   padding: 32px;
-  width: 50%;
+  width: 35%;
+  height: 90vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.CardRight {
+  padding: 32px;
+  width: 60%;
+  height: 90vh;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;

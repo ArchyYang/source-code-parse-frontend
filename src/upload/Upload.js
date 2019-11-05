@@ -19,6 +19,11 @@ class Upload extends Component {
     this.sendRequest = this.sendRequest.bind(this);
     this.renderActions = this.renderActions.bind(this);
     this.readBody = this.readBody.bind(this);
+    this.handleDataChange = this.handleDataChange.bind(this);
+  }
+
+  handleDataChange(files) {
+    this.props.onUploadChange(files);
   }
 
   onFilesAdded(files) {
@@ -65,6 +70,7 @@ class Upload extends Component {
 
 
   sendRequest(file) {
+    let that = this;
     return new Promise((resolve, reject) => {
       const req = new XMLHttpRequest();
 
@@ -100,7 +106,7 @@ class Upload extends Component {
       var that = this;
       req.onreadystatechange = function() {
         if (req.readyState == 4) {
-          console.log(that.readBody(req));
+          that.handleDataChange(that.readBody(req));
         }
       }
 
@@ -144,7 +150,7 @@ class Upload extends Component {
           disabled={this.state.files.length < 0 || this.state.uploading}
           onClick={this.uploadFiles}
         >
-          Upload
+          Parse
         </button>
       );
     }
